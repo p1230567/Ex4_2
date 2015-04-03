@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="身高(M)"
+        android:id="@+id/tv_hight"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textSize="22sp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/et_hight"
+        android:layout_below="@+id/tv_hight"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="體重(KG)"
+        android:id="@+id/tv_weight"
+        android:layout_below="@+id/et_hight"
+        android:layout_alignParentStart="true"
+        android:textSize="22sp"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/et_weight"
+        android:layout_below="@+id/tv_weight"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="確定"
+        android:id="@+id/btn_sumbit"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="清除"
+        android:id="@+id/btn_clear"
+        android:layout_alignTop="@+id/btn_sumbit"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="返回"
+        android:id="@+id/btn_back"
+        android:layout_alignTop="@+id/btn_clear"
+        android:layout_alignParentEnd="true"
+        android:textSize="20sp"/>
+</RelativeLayout>
