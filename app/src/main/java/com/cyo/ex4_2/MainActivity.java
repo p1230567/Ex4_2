@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 
 public class MainActivity extends Activity {
     private final int request = 0;
@@ -23,11 +25,11 @@ public class MainActivity extends Activity {
         findViews();
     }
 
-    protected void findViews(){
+    protected void findViews() {
 
-       btn_cul = (Button)findViewById(R.id.btn_cul);
-       btn_exit = (Button)findViewById(R.id.btn_exit);
-       tv_result = (TextView)findViewById(R.id.tv_result);
+        btn_cul = (Button) findViewById(R.id.btn_cul);
+        btn_exit = (Button) findViewById(R.id.btn_exit);
+        tv_result = (TextView) findViewById(R.id.tv_result);
 
         btn_cul.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +50,26 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        回傳代碼不正確，不執行動作
+        if (requestCode != request) {
+            return;
+        } else if (resultCode == RESULT_OK) {
+//            從Bundle的data中取得資料
+            Bundle bundle = data.getExtras();
+            Double BMI = bundle.getDouble("BMI");
+//            轉換格式
+            DecimalFormat decimalFormat = new DecimalFormat("##.##");
+            if (BMI < 18.5) {
+                tv_result.setText("BMI值為:" + decimalFormat.format(BMI) + "\n" + "過瘦");
+            } else if (BMI >= 24) {
+                tv_result.setText("BMI值為:" + decimalFormat.format(BMI) + "\n" + "過重");
+            } else {
+                tv_result.setText("BMI值為:" + decimalFormat.format(BMI) + "\n" + "正常");
+            }
+        }
+        else if (resultCode == RESULT_CANCELED)
+                tv_result.setText("確定不使用看看嗎?");
+
 
     }
 
